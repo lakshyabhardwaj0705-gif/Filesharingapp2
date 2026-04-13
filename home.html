@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Sharing Application</title>
+    <script src="https://kit.fontawesome.com/106a3659bb.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link th:href="@{/styles/css/homestyle.css}" rel="stylesheet">
+    <style media="screen">
+        *:before,*:after{
+            padding:0;
+            margin:0;
+            box-sizing:border-box;
+        }
+    </style>
+</head>
+
+<body>
+
+   <div class="header-test">
+    <h1 class="header-title">File Sharing App</h1>
+    <h3 class="header-line">Effortless sharing, boundless possibilities</h3>
+   </div>
+      
+
+
+   <main>
+    <div class="airplane"></div>
+   <div class="animation-container">
+   <img th:src="@{/images/left.png}" alt="left computer" class="computer left-computer">
+   <img th:src="@{/images/right.png}" alt="Right computer" class="computer right-computer">
+   <div class="doted-path"></div>
+   </div>
+   </main>
+   <div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+   </div>
+   <div class="card-container">
+    <div class="card">
+        <div class="card-front">
+        
+<h3>About</h3><br>
+ 
+<p>Welcome to our innovative file-sharing platform, designed to make transferring files between devices effortless and secure. Whether y 
+<p>Key Features:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  🌟 Fast and Secure Transfers<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  🌟 User-Friendly Interface<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  🌟 Cross-Platform Compatibility<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  🌟 No Size Limits<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  🌟 Real-Time Collaboration<br><br>
+
+Discover a new way of sharing files with convenience and security. Join us and start sharing smarter today!</p>
+        <button class="login-btn">Login</button>
+</div>
+        <form>
+            <h3>Login Here</h3>
+
+            <div class="social">
+                <a href="/oauth2/authorization/google" class="go"><i class="fab fa-google"></i>Google</a>
+                <a href="/oauth2/authorization/github" class="github"><i class="fab fa-github"></i>GitHub</a>
+            </div>
+            <p class="about-btn">back</p>
+        </form>
+    </div>
+   </div>
+   
+<script>
+document.querySelector('.login-btn').addEventListener('click', function () 
+{ document.querySelector('.card').classList.toggle('flipped');
+});
+document.querySelector('.about-btn').addEventListener('click', function ()
+{ document.querySelector('.card').classList.toggle('flipped');
+});
+</script>
+</body>
+</html>

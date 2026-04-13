@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <title>Share File</title>
+
+    <link rel="icon" type="image/png" th:href="@{/images/file-sharing.png}">
+    <link th:href="@{/styles/css/share-files.css}" rel="stylesheet" />
+
+    <!-- ✅ Font Awesome (missing था) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ✅ DOWNLOAD BOX -->
+    <div class="box download-box">
+
+        <h1>Download Your File</h1>
+
+        <p>File Name: <span th:text="${file.fileName}"></span></p>
+        <p>Uploaded By: <span th:text="${file.uploadedBy}"></span></p>
+
+        <form th:action="@{/files/download/{id} (id=${file.id})}">
+            <button type="submit" class="download-button">
+                <i class="fa fa-download"></i> Download File
+            </button>
+        </form>
+
+    </div>
+
+    <!-- ✅ SHARE BOX -->
+    <div class="box share-box">
+
+        <h2>Share This Page</h2>
+
+        <p>URL:
+            <input type="text" id="shareUrl" readonly
+                   th:value="@{'http://localhost:8080/files/share/' + ${file.id}}" />
+        </p>
+
+        <button class="copy-button" onclick="copyToClipboard()">
+            <i class="fas fa-copy"></i> Copy URL
+        </button>
+
+    </div>
+
+    <!-- ✅ BACK BUTTON -->
+    <a th:href="@{/files/home}" class="back-link">Back to File List</a>
+
+</div>
+
+<!-- ✅ JS -->
+<script>
+
+    // Copy URL
+    function copyToClipboard() {
+        var copyText = document.getElementById("shareUrl");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999);
+
+        navigator.clipboard.writeText(copyText.value);
+
+        alert("URL copied: " + copyText.value);
+    }
+
+</script>
+
+</body>
+</html>
